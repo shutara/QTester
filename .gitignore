@@ -5,6 +5,7 @@
 __history
 *.drc
 *.map
-*.exe
-*.dll
 bin/*
+*.dco
+*.ini
+*.tmp
