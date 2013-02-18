@@ -1,0 +1,14 @@
+[General]
+hu=3
+
+[Task_1]
+name_t=Фізика
+way_t=01
+
+[Task_2]
+name_t=Мова
+way_t=02
+
+[Task_3]
+name_t=Інформатика
+way_t=03

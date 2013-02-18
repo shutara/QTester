@@ -1,0 +1,17 @@
+[General]
+hu=3
+
+[Task_1]
+name=Гравітація
+ID=11
+way_t=31.dco
+
+[Task_2]
+name=Магнетизм
+ID=12
+way_t=32.dco
+
+[Task_3]
+name=Механіка
+ID=13
+way_t=33.dco
