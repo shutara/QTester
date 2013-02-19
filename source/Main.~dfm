@@ -216,20 +216,18 @@ object Form1: TForm1
     ParentFont = False
   end
   object lbl5: TLabel
-    Left = 496
-    Top = 320
-    Width = 294
-    Height = 76
-    Align = alCustom
+    Left = 0
+    Top = 0
+    Width = 1038
+    Height = 804
+    Align = alLeft
     Alignment = taCenter
-    BiDiMode = bdLeftToRight
     Caption = #1089#1090#1072#1090#1091#1089
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -29
     Font.Name = 'Segoe Script'
     Font.Style = []
-    ParentBiDiMode = False
     ParentFont = False
     Transparent = True
     Layout = tlCenter

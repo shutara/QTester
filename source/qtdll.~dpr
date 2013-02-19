@@ -22,6 +22,7 @@ end;
 
   function qtsvp(var inp:integer; decode: Boolean; fn:string):string;export;// Протокол підтвердження даних
   var
+  i: integer;
   Str1, Str2 : TFileStream;
   key:string;
   const
