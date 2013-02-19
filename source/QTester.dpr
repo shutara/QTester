@@ -18,8 +18,9 @@ begin
   load.Show;
   Application.Title := 'QTester';
   load.pb1.Position:=load.pb1.Position+10;
-  load.pb1.Position:=load.pb1.Position+10;
   Application.CreateForm(TForm1, Form1);
+  load.pb1.Position:=load.pb1.Position+10;
+  Application.CreateForm(TForm2, Form2);
   load.pb1.Position:=load.pb1.Position+10;
   Application.CreateForm(TForm3, Form3);
   load.pb1.Position:=load.pb1.Position+10;
