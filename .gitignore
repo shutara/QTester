@@ -6,3 +6,5 @@ __history
 *.drc
 *.map
 bin/*
+*.ini
+data/*
