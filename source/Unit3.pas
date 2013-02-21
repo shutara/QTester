@@ -49,10 +49,8 @@ procedure TForm3.btn1Click(Sender: TObject);//Оновлення результатів
 var
   me: TMemoryStream;
   ini: TIniFile;
-  userc, i, ID, ia, res, fast, slow, mini, max, min, time: integer;
+  userc, i, res, time: integer;
   dat: string;
-  ball: array[1..100] of Integer;
-
 begin
   Main.Form1.idftp2.Host := '176.37.113.152';
   Main.Form1.idftp2.Username := 'QTESTER';
@@ -70,8 +68,8 @@ begin
     end;
   end;
   ChDir(ExtractFilePath(Application.ExeName));
-  I := 1;
   Main.Form1.tmr4.Enabled := False;
+  //I:=1;
   Form3.arsrsSeries1.Clear;
   Form3.brsrsSeries1.Clear;
 
@@ -99,7 +97,6 @@ begin
     res := ini.ReadInteger('Info_' + inttostr(I), '12sysbl', 0);
     user := ini.ReadString('Info_' + IntToStr(I), 'User', '####');
     time := ini.Readinteger('Info_' + inttostr(I), 'Time', 0);
-    ia := 0;
     form3.brsrsSeries1.AddXY(I, res, user);
     form3.arsrsSeries1.AddXY(I, time, user);
     Form3.arsrsSeries1.Repaint;

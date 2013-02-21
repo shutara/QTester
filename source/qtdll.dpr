@@ -10,15 +10,20 @@ uses
   Procedure count(E:Exception);export;  //Відлов виключеннь
 var
   f:textfile;
+  s,s2:string;
 begin
-  AssignFile(f, 'log_exeption.txt');
-  Rewrite(f);
-  Writeln(f, 'Error # '+ E.message);
-  CloseFile(f);
-  Form1.Hide;
-  showmessage('Помилка! Повідомте адмінітсратора. Лог збережено');
-  Application.Terminate;
+AssignFile(f, 'exeption.txt');
+s:=inputbox('Помилка','Будь ласка опишіть помилку що виникла.','');
+s2:=s+' AppCase^ '+e.Message;
+Writeln(f, s2);
+CloseFile(f);
+Showmessage('Дякуємо за допомогу у виправленні помилок! Закрийте програму.');
 end;
+<<<<<<< HEAD
+=======
+exports
+count index 1;
+>>>>>>> Р’РµСЂСЃС–СЏ 2.5.3.1 (РќРµСЃС‚Р°Р±С–Р»СЊРЅР°)
 
   function qtsvp(var inp:integer; decode: Boolean; fn:string):string;export;// Протокол підтвердження даних
   var
@@ -75,6 +80,11 @@ end;
   end;
   end;
   end;
+<<<<<<< HEAD
+=======
+exports
+qtsvp index 2;
+>>>>>>> Р’РµСЂСЃС–СЏ 2.5.3.1 (РќРµСЃС‚Р°Р±С–Р»СЊРЅР°)
 
 Function GetHDSerNo: shortstring; export; //Отримання ID ПК (Розділу С:)
 var VolumeName, FileSystemName : array [0..MAX_PATH-1] of Char; VolumeSerialNo : Cardinal; MaxComponentLength, FileSystemFlags : DWORD;
@@ -83,6 +93,11 @@ Try GetVolumeInformation('C:\',VolumeName,MAX_PATH,@VolumeSerialNo, MaxComponent
 Result:=IntToHex(HiWord(VolumeSerialNo),4)+ '-'+IntToHex(LoWord(VolumeSerialNo),4); Except ;
 End;
 End;
+<<<<<<< HEAD
+=======
+exports
+GetHDSerNo index 3;
+>>>>>>> Р’РµСЂСЃС–СЏ 2.5.3.1 (РќРµСЃС‚Р°Р±С–Р»СЊРЅР°)
 
 begin
 

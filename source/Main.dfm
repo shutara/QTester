@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 163
-  Top = 86
+  Left = 227
+  Top = 96
   HorzScrollBar.Visible = False
   BorderIcons = []
   BorderStyle = bsSingle
@@ -151,6 +151,7 @@ object Form1: TForm1
   Menu = mm1
   OldCreateOrder = False
   Position = poScreenCenter
+  PrintScale = poPrintToFit
   Visible = True
   WindowState = wsMaximized
   OnClose = FormClose
@@ -216,10 +217,17 @@ object Form1: TForm1
     ParentFont = False
   end
   object lbl5: TLabel
+<<<<<<< HEAD
     Left = 496
     Top = 320
     Width = 294
     Height = 76
+=======
+    Left = 568
+    Top = 320
+    Width = 124
+    Height = 46
+>>>>>>> Версія 2.5.3.1 (Нестабільна)
     Align = alCustom
     Alignment = taCenter
     BiDiMode = bdLeftToRight
@@ -423,9 +431,14 @@ object Form1: TForm1
           Caption = #1042#1080#1076#1072#1083#1080#1090#1080' '#1090#1077#1089#1090
           OnClick = N9Click
         end
-        object N15: TMenuItem
-          Caption = #1042#1080#1076#1072#1083#1077#1085#1085#1103' '#1056#1077#1079#1091#1083#1100#1090#1072#1090#1110#1074
-          OnClick = N15Click
+      end
+      object N10: TMenuItem
+        Caption = #1046#1091#1088#1085#1072#1083
+        Visible = False
+        object N11: TMenuItem
+          Caption = #1042#1110#1076#1082#1088#1080#1090#1080
+          Visible = False
+          OnClick = N11Click
         end
         object L1: TMenuItem
           Caption = #1044#1086#1076#1072#1074#1072#1085#1085#1103'...'
@@ -438,20 +451,11 @@ object Form1: TForm1
             OnClick = N17Click
           end
         end
-        object N18: TMenuItem
-          Caption = #1044#1088#1091#1082' '#1090#1077#1089#1090#1091
-          Enabled = False
-          OnClick = N18Click
-        end
       end
-    end
-    object N10: TMenuItem
-      Caption = #1046#1091#1088#1085#1072#1083
-      Visible = False
-      object N11: TMenuItem
-        Caption = #1042#1110#1076#1082#1088#1080#1090#1080
-        Visible = False
-        OnClick = N11Click
+      object N18: TMenuItem
+        Caption = #1044#1088#1091#1082' '#1090#1077#1089#1090#1091
+        Enabled = False
+        OnClick = N18Click
       end
     end
   end
@@ -497,6 +501,7 @@ object Form1: TForm1
     Left = 600
   end
   object sknmngr1: TsSkinManager
+    Effects.AllowGlowing = False
     InternalSkins = <
       item
         Name = 'Deep (internal)'
@@ -4949,19 +4954,19 @@ object Form1: TForm1
     ThirdParty.ThirdListViews = 'TListView'#13#10
     ThirdParty.ThirdPanels = 'TPage'#13#10'TGridPanel'#13#10
     ThirdParty.ThirdGrids = 'TDrawGrid'#13#10
-    ThirdParty.ThirdTreeViews = ' '
+    ThirdParty.ThirdTreeViews = ' '#13#10
     ThirdParty.ThirdComboBoxes = 'TComboBox'#13#10'TComboBoxEx'#13#10'TColorBox'#13#10
     ThirdParty.ThirdWWEdits = ' '#13#10
     ThirdParty.ThirdVirtualTrees = ' '#13#10
     ThirdParty.ThirdGridEh = ' '#13#10
-    ThirdParty.ThirdPageControl = ' '
-    ThirdParty.ThirdTabControl = ' '
-    ThirdParty.ThirdToolBar = ' '
-    ThirdParty.ThirdStatusBar = ' '
-    ThirdParty.ThirdSpeedButton = ' '
-    ThirdParty.ThirdScrollControl = ' '
-    ThirdParty.ThirdUpDown = ' '
-    ThirdParty.ThirdScrollBar = ' '
+    ThirdParty.ThirdPageControl = ' '#13#10
+    ThirdParty.ThirdTabControl = ' '#13#10
+    ThirdParty.ThirdToolBar = ' '#13#10
+    ThirdParty.ThirdStatusBar = ' '#13#10
+    ThirdParty.ThirdSpeedButton = ' '#13#10
+    ThirdParty.ThirdScrollControl = ' '#13#10
+    ThirdParty.ThirdUpDown = ' '#13#10
+    ThirdParty.ThirdScrollBar = ' '#13#10
     Left = 696
   end
   object tmr2: TTimer

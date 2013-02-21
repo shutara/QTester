@@ -90,12 +90,21 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
+<<<<<<< HEAD
 OutputDir=C:\Users\Shutara\Documents\GitHub\QTester
 UnitOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 PackageDLLOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 PackageDCPOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 SearchPath=C:\Users\Shutara\Documents\GitHub\QTester
 Packages=vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP
+=======
+OutputDir=
+UnitOutputDir=
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=
+Packages=
+>>>>>>> Версія 2.5.3.1 (Нестабільна)
 Conditionals=
 DebugSourceDirs=C:\Users\Shutara\Documents\GitHub\QTester\source
 UsePackages=0
@@ -112,10 +121,10 @@ RootDir=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=0
+MajorVer=1
 MinorVer=0
-Release=1
-Build=69
+Release=0
+Build=0
 Debug=0
 PreRelease=0
 Special=0
@@ -124,9 +133,9 @@ DLL=0
 Locale=1058
 CodePage=1251
 [Version Info Keys]
-CompanyName=SAV DEV
-FileDescription=Lib for QT
-FileVersion=0.0.1.69
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -134,6 +143,7 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
+<<<<<<< HEAD
 [HistoryLists\hlDebugSourcePath]
 Count=2
 Item0=C:\Users\Shutara\Documents\GitHub\QTester\source
@@ -162,3 +172,5 @@ Item1=F:\Delphi Projects\Qtesteer\source
 Count=2
 Item0=C:\Users\Shutara\Documents\GitHub\QTester\source
 Item1=F:\Delphi Projects\Qtesteer\source
+=======
+>>>>>>> Версія 2.5.3.1 (Нестабільна)

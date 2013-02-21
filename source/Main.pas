@@ -4,7 +4,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ShellAPI, StdCtrls, ComCtrls, IniFiles, ExtCtrls, Unit2,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdFTP, IdHTTP,
-  sSkinManager, SC6,ComObj;
+  sSkinManager, SC6,ComObj, AppEvnts;
 type
   TForm1 = class(TForm)
     mm1: TMainMenu;
@@ -38,7 +38,6 @@ type
     idhtp: TIdHTTP;
     N13: TMenuItem;
     N14: TMenuItem;
-    N15: TMenuItem;
     btn4: TButton;
     btn5: TButton;
     sknmngr1: TsSkinManager;
@@ -98,34 +97,22 @@ type
     procedure journaladd(var kurs,vuzn,pred,oc,uch:string);
     function setc:Boolean;
     procedure remfiles;
+    procedure no_quest_p;
   end;
 var
   Form1: TForm1;
-  p0: Integer;
-  i, n: integer;
-  block:boolean;
-  name_t,admpass: string;
+  p0,i, n,link, err, q,tagg,P, x,s, m,Chmod, Qi, code,ID, s3,qestionar: Integer;
+  block,acc, pr, pr2, pr3, pr4, pr5,v1, v2, v3, v4, v5, no_quest:boolean;
+  name_t,admpass,a0, Testn, workdir, namet,name, user,vuzname, acckey, kurs, idd: string;
   way_t,name_ta:array [1..25] of string;
   exeltn: string[100];
   test: TIniFile;
   ap:Variant;
   DLLInstance: THandle;
-  link, err, q,tagg: Integer;
   questionex, answf, answt, testlist: array of string;
-  a0, Testn, workdir, namet: string;
-  P, x: Integer;
-  s, m: Integer;
-  Chmod, Qi, code: Integer;
   resultW: TextFile;
-  name, user: string;
-  vuzname, kurs, idd: string;
-  ID: Integer;
-  acc, pr, pr2, pr3, pr4, pr5: Boolean;
-  v1, v2, v3, v4, v5: Boolean;
-  s3: Integer;
   mpos: Integer = 0;
   ma: array[1..27] of integer;
-  acckey: string;
 procedure count(var E: Exception); external 'qtdll.dll';
 function qtsvp(var inp: integer; text: string; decode: boolean): string; external 'qtdll.dll';
 function GetHDSerNo: shortstring; external 'qtdll.dll';
@@ -151,7 +138,6 @@ procedure TForm1.menu(var tag:integer); //Кнопка Заліку №1 (Активна)
 var
   ini:TIniFile;
   m:TMemoryStream;
-  i:Integer;
   way:string;
 begin
 if idftp2.Connected<>True then
@@ -222,10 +208,8 @@ label
 var
   m,m2: TMemoryStream;
   ini,ini2: TIniFile;
-  way, cd, TUSN: string;
-  left, top: Real;
-  I, maks: Integer;
-  test: TIniFile;
+  way : string;
+  top: Real;
 begin
   lbl5.Hide;
   Form1.Hide;
@@ -480,16 +464,49 @@ begin
 end;
 procedure TForm1.btn3Click(Sender: TObject); //Кнопка "Наступне питання"
 var
-  c: Integer;
   way: string;
+  i:integer;
 begin
+  if (pr=false)and(pr2=false)and(pr3=false)and(pr4=false)and(pr5=false)then
+  begin
+    no_quest:=true;
+    qestionar:=q;
+    end;
   if btn3.Caption = 'Завершити тест' then
   begin
+    if no_quest=true then
+    begin
+      tmr2.Enabled := false;
+      tmr1.Enabled := False;
+      case Application.MessageBox('Чи ви хочете повернутись до тих питаннь?', 
+        'Є питання на які ви не дали відповідь!', MB_YESNO +
+        MB_ICONINFORMATION) of
+        IDYES:
+          begin
+            tmr2.Enabled := true;
+            tmr1.Enabled := true;
+           no_quest_p;
+           exit;
+          end;
+        IDNO:
+          begin
+           tmr2.Enabled := false;
+           way := Workdir + 'data\dt.dco1';
+           tmr1.Enabled := False;
+           Form1.Hide;
+           DeleteFile(way);
+          end;
+      end;
+
+    end
+    else
+    begin
     tmr2.Enabled := false;
     way := Workdir + 'data\dt.dco1';
     tmr1.Enabled := False;
     Form1.Hide;
     DeleteFile(way);
+  end;
   end;
   pr := false;
   pr2 := False;
@@ -700,7 +717,15 @@ begin
       CloseFile(resultW);
       way := ExtractFilePath(Application.ExeName) + 'ires.da0';
       test := TIniFile.Create(way);
+      if m<1 then
+      begin
+      M:=0;
+      time := s;
+      end;
+      if (m>0)or(M=1) then
+      begin
       time := (m*60) + s;
+      end;
       if FTPFileExists('ires.da0') = false then
       begin
         I := 1;
@@ -802,14 +827,13 @@ procedure TForm1.tmr4Timer(Sender: TObject); //Вивід результатів із надсиланням 
 var
   me: TMemoryStream;
   ini: TIniFile;
-  userc, i, ID, ia, res, fast, slow, mini, max, min, time: integer;
+  userc, i, res, time: integer;
   dat: string;
-  ball: array[1..100] of Integer;
   tag:Integer;
 begin
   tmr4.Enabled := false;
   tmr2.Enabled := false;
-  I := 1;
+//  I := 1;
   case Application.MessageBox('Ви хочете побачити загальный результат?',
     'Інформація', MB_YESNO + MB_ICONQUESTION + MB_TOPMOST) of
     IDYES:
@@ -842,7 +866,7 @@ begin
         end;
         if (Tag>30)and(tag<40)then
         begin
-          Tag :=3
+//          Tag :=3
         end;
         me := TMemoryStream.Create;
         try
@@ -866,7 +890,7 @@ begin
           res := ini.ReadInteger('Info_' + inttostr(I), '12sysbl', 0);
           user := ini.ReadString('Info_' + IntToStr(I), 'User', '####');
           time := ini.Readinteger('Info_' + inttostr(I), 'Time', 0);
-          ia := 0;
+ //         ia := 0;
           form3.brsrsSeries1.AddXY(I, res, user);
           form3.arsrsSeries1.AddXY(I, time, user);
           Form3.arsrsSeries1.Repaint;
@@ -1039,7 +1063,6 @@ procedure TForm1.testing(var id, qid: integer); //Процедура отримання питаннь ві
 var
   way, workdir: string;
   testdata: TIniFile;
-  I: Integer;
 begin
   workdir := ExtractFilePath(Application.ExeName);
   way := Workdir + 'data\dt.dco1';
@@ -1235,7 +1258,6 @@ var
   code, s2, i, ind: Integer;
   te: Boolean;
   code1: Integer;
-  ares: string;
 begin
   chek:
   code := Random(27) + 1;
@@ -1365,9 +1387,6 @@ btn5.hide;
     end
     else
     begin
-      //idftp2.ChangeDir('data');
-      //idftp2.ChangeDir(vuzname);
-      //idftp2.ChangeDir(kurs);
       if FTPFileExists('ires.da0') = True then
       begin
         m := TMemoryStream.Create;
@@ -1474,7 +1493,6 @@ procedure TForm1.tagtest(var tag1: integer);
 var
 ini:TIniFile;
 m:TMemoryStream;
-i:Integer;
 name:string;
 begin
 lbl5.Caption:='Зачекайте, будь ласка...';
@@ -1584,5 +1602,31 @@ DeleteFile('dt.dco');
 Exit;
 end;
 
+procedure TForm1.no_quest_p;
+begin
+if no_quest=true then
+begin
+S3:=s3-1;
+pr := false;
+pr2 := False;
+pr3 := False;
+pr4 := False;
+pr5 := False;
+var1.Font.Size := 8;
+var2.Font.Size := 8;
+var3.Font.Size := 8;
+var4.Font.Size := 8;
+var5.Font.Size := 8;
+ID := 1;
+testing(ID, qestionar);
+no_quest:=false;
+end
+else
+begin
+  S3:=s3+1;
+  no_quest:=false;
+btn3Click(btn3);
+end;
+end;
 
 end.

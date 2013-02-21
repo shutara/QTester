@@ -27,8 +27,8 @@ W=1
 X=1
 Y=1
 Z=1
-ShowHints=0
-ShowWarnings=0
+ShowHints=1
+ShowWarnings=1
 UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 NamespacePrefix=
 SymbolDeprecated=1
@@ -90,12 +90,21 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
+<<<<<<< HEAD
 OutputDir=C:\Users\Shutara\Documents\GitHub\QTester
 UnitOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 PackageDLLOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 PackageDCPOutputDir=C:\Users\Shutara\Documents\GitHub\QTester\source
 SearchPath=C:\Users\Shutara\Documents\GitHub\QTester\source
 Packages=vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP
+=======
+OutputDir=
+UnitOutputDir=
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=
+Packages=vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP;acntD7_R
+>>>>>>> Версія 2.5.3.1 (Нестабільна)
 Conditionals=
 DebugSourceDirs=C:\Users\Shutara\Documents\GitHub\QTester\source
 UsePackages=0
@@ -111,11 +120,15 @@ ProjectLang=
 RootDir=
 [Version Info]
 IncludeVerInfo=1
-AutoIncBuild=1
+AutoIncBuild=0
 MajorVer=2
 MinorVer=5
 Release=1
+<<<<<<< HEAD
 Build=5
+=======
+Build=7
+>>>>>>> Версія 2.5.3.1 (Нестабільна)
 Debug=0
 PreRelease=1
 Special=1
@@ -126,7 +139,11 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=SAV Dev
 FileDescription=Tester Launcher
+<<<<<<< HEAD
 FileVersion=2.5.1.5
+=======
+FileVersion=2.5.1.7
+>>>>>>> Версія 2.5.3.1 (Нестабільна)
 InternalName=QT
 LegalCopyright=SAV Development
 LegalTrademarks=SAV Dev
